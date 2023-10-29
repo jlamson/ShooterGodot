@@ -1,22 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck3ln2heuqdpx"]
+[gd_scene load_steps=8 format=3 uid="uid://ck3ln2heuqdpx"]
 
 [ext_resource type="Texture2D" uid="uid://d3l61p6n4765t" path="res://graphics/player/player.png" id="1_kyaok"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_qbllu"]
+[ext_resource type="Texture2D" uid="uid://cxhcelcmkyrm5" path="res://graphics/decals/white.png" id="3_gh78o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43ufw"]
 radius = 65.0077
+
+[sub_resource type="Gradient" id="Gradient_24iec"]
+interpolation_mode = 2
+colors = PackedColorArray(0.285838, 0.747313, 0.179543, 1, 0.286275, 0.74902, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8kshb"]
+gradient = SubResource("Gradient_24iec")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3t4rk"]
+emission_shape = 1
+emission_sphere_radius = 10.0
+particle_flag_disable_z = true
+spread = 25.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 800.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+scale_min = 0.3
+scale_max = 0.6
+color_ramp = SubResource("GradientTexture1D_8kshb")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
 script = ExtResource("1_qbllu")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_43ufw")
+
+[node name="LaserParticles" type="GPUParticles2D" parent="."]
+position = Vector2(121, 23)
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_3t4rk")
+texture = ExtResource("3_gh78o")
+lifetime = 0.1
+one_shot = true
+
 [node name="PlayerImage" type="Sprite2D" parent="."]
 position = Vector2(34, 5)
 rotation = 1.5708
 texture = ExtResource("1_kyaok")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_43ufw")
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.5

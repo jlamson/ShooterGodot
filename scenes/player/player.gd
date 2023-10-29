@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal laser(pos: Vector2, aim_direction: Vector2)
 signal grenade(pos: Vector2, aim_direction: Vector2)
 
-const SPEED = 1000
+const SPEED = 500
 const FIRE_SCALE = 1.1
 
 var screen_size
@@ -39,6 +39,7 @@ func handle_shoot():
 		laser.emit(laser_spawn.global_position, aim_direction)
 		
 		can_laser = false
+		$LaserParticles.emitting = true
 		$LaserTimer.start()
 
 
