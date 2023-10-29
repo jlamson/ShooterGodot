@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal player_laser_fired
+signal player_grenade_thrown
+
 const SPEED = 500
 const FIRE_SCALE = 1.1
 
@@ -26,9 +29,9 @@ func handle_move():
 
 func handle_shoot():
 	if Input.is_action_pressed("primary") and can_laser:
-		print("shoot laser")
 		can_laser = false
 		$LaserTimer.start()
+		player_laser_fired.emit()
 
 func _on_laser_timer_timeout():
 	can_laser = true
@@ -36,9 +39,9 @@ func _on_laser_timer_timeout():
 
 func handle_grenade():
 	if Input.is_action_pressed("secondary") and can_grenade:
-		print("throw grenade")
 		can_grenade = false
 		$GrenadeTimer.start()
+		player_grenade_thrown.emit()
 
 func _on_grenade_timer_timeout():
 	can_grenade = true
