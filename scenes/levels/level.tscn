@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rmn4xrmye82u"]
+[gd_scene load_steps=18 format=3 uid="uid://rmn4xrmye82u"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_f3of7"]
 [ext_resource type="PackedScene" uid="uid://bqswsc1h4mn2i" path="res://scenes/objects/gate.tscn" id="2_e2m71"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://e7f5rjfwcexb" path="res://graphics/decals/moss/moss_5.png" id="8_aqmrb"]
 [ext_resource type="Texture2D" uid="uid://dbe2652bf5x5x" path="res://graphics/tilesets/outside_walls.png" id="9_8fyjn"]
 [ext_resource type="Texture2D" uid="uid://cfd8g6wqrnnsq" path="res://graphics/tilesets/soil.png" id="10_t4lxb"]
+[ext_resource type="PackedScene" uid="uid://dlheoy1jujxsi" path="res://scenes/objects/steam_vent.tscn" id="11_wn0cn"]
 [ext_resource type="PackedScene" uid="uid://bmvtix8ma4ygr" path="res://scenes/houses/house.tscn" id="12_tixcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1egx"]
@@ -19,33 +20,85 @@ resource_name = "walls"
 texture = ExtResource("9_8fyjn")
 texture_region_size = Vector2i(390, 390)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.0868, -64.3467, 195, -65.25, 195, 62.5, -67.2635, 61.8718)
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -62.5, 195, -65.25, 195, 62.5, -195, 57.5)
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64.3467, -67.0868, 65.25, 195, -62.5, 195, -61.8718, -67.2635)
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60.4576, -62.2254, 195, -56.5686, 195, 59.397, 60.5859, 59.3995, 61.1647, 195, -58.3363, 195)
 0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(62.5, -195, 65.25, 195, -62.5, 195, -57.5, -195)
 1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62.2254, 60.4576, -56.5686, -195, 59.397, -195, 59.3995, -60.5859, 195, -61.1647, 195, 58.3363)
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(67.0868, 64.3467, -195, 65.25, -195, -62.5, 67.2635, -61.8718)
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(62.2254, -60.4576, 56.5686, 195, -59.397, 195, -59.3995, 60.5859, -195, 61.1647, -195, -58.3363)
 2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(60.4576, 62.2254, -195, 56.5686, -195, -59.397, -60.5859, -59.3995, -61.1647, -195, 58.3363, -195)
 0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58.25, -195, 59.5, -195, 61.75, 46, -62.75, 46)
 1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8xtc"]
 resource_name = "soil"
 texture = ExtResource("10_t4lxb")
 texture_region_size = Vector2i(390, 390)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_l8gqd"]
 tile_size = Vector2i(390, 390)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 11
 sources/0 = SubResource("TileSetAtlasSource_q1egx")
 sources/1 = SubResource("TileSetAtlasSource_f8xtc")
 
@@ -99,6 +152,9 @@ texture = ExtResource("7_7ved0")
 [node name="Moss5" type="Sprite2D" parent="Ground"]
 position = Vector2(-657, 1480)
 texture = ExtResource("8_aqmrb")
+
+[node name="SteamVent" parent="Ground" instance=ExtResource("11_wn0cn")]
+position = Vector2(18, 401)
 
 [node name="Gate" parent="." instance=ExtResource("2_e2m71")]
 
