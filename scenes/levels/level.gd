@@ -1,9 +1,10 @@
 extends Node2D
 
 
+var screen_size
+
 var velocity = Vector2.ZERO
 const SPEED = 200
-
 
 var rotation_direction = 1
 const ROT_SPEED = 45
@@ -12,11 +13,10 @@ const ROT_MIN = -90
 
 
 func _ready():
+	screen_size = get_viewport_rect().size
+	
 	$Logo.rotation_degrees = 0
-	$Logo.position = Vector2(
-		get_window().size.x / 2,
-		get_window().size.y / 2
-	)
+	$Logo.position = Vector2(screen_size.x / 2, screen_size.y / 2)
 
 
 func _process(delta):
