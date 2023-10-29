@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal laser(pos: Vector2, aim_direction: Vector2)
 signal grenade(pos: Vector2, aim_direction: Vector2)
 
-const SPEED = 500
+const SPEED = 1000
 const FIRE_SCALE = 1.1
 
 var screen_size
