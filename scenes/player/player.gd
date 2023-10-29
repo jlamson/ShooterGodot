@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-signal laser(pos: Vector2)
-signal grenade(pos: Vector2)
+signal laser(pos: Vector2, aim_direction: Vector2)
+signal grenade(pos: Vector2, aim_direction: Vector2)
 
 const SPEED = 500
 const FIRE_SCALE = 1.1
@@ -17,6 +17,7 @@ func _ready():
 
 func _process(_delta):
 	handle_move()
+	handle_rotate()
 	handle_shoot()
 	handle_grenade()
 	
@@ -27,10 +28,15 @@ func handle_move():
 	move_and_slide()
 
 
+func handle_rotate():
+	look_at(get_global_mouse_position())
+	
+
 func handle_shoot():
 	if Input.is_action_pressed("primary") and can_laser:
 		var laser_spawn = $LaserStartPositions.get_children().pick_random()
-		laser.emit(laser_spawn.global_position)
+		var aim_direction = (get_global_mouse_position() - position).normalized()
+		laser.emit(laser_spawn.global_position, aim_direction)
 		
 		can_laser = false
 		$LaserTimer.start()
@@ -38,7 +44,8 @@ func handle_shoot():
 
 func handle_grenade():
 	if Input.is_action_pressed("secondary") and can_grenade:
-		grenade.emit($GrenadeStartPosition.global_position)
+		var aim_direction = (get_global_mouse_position() - position).normalized()
+		grenade.emit($GrenadeStartPosition.global_position, aim_direction)
 		
 		can_grenade = false
 		$GrenadeTimer.start()
