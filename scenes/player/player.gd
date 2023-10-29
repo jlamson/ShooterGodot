@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var screen_size
 
@@ -9,18 +9,19 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, screen_size.y / 2)
 
-func _process(delta):
-	handle_move(delta)
-	handle_shoot(delta)
+func _process(_delta):
+	handle_move()
+	handle_shoot()
 	
 	
-func handle_move(delta):
+func handle_move():
 	var direction = Input.get_vector("left", "right", "up", "down")
-	position += direction * 200 * delta
+	velocity = direction * SPEED
+	move_and_slide()
 
 
-func handle_shoot(delta):
+func handle_shoot():
 	if Input.is_action_just_pressed("primary"):
-		scale *= FIRE_SCALE
+		$PlayerImage.scale *= FIRE_SCALE
 	if Input.is_action_just_released("primary"):
-		scale /= FIRE_SCALE
+		$PlayerImage.scale /= FIRE_SCALE
