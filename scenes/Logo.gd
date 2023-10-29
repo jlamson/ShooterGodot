@@ -9,8 +9,8 @@ var test_scale: float = 1
 func _ready():
 	pos = Vector2(300, 200)
 	
-	var test_rotation: int = 45
-	rotation_degrees = test_rotation
+#	var test_rotation: int = 45
+#	rotation_degrees = test_rotation
 	
 	test_scale = 2
 	scale.x = test_scale
@@ -21,6 +21,6 @@ func _ready():
 func _process(delta):
 	pos.x += speed
 	position = pos
-	
-	test_scale += 0.1
-	scale = Vector2(test_scale, test_scale)
+
+#	test_scale += 0.1
+#	scale = Vector2(test_scale, test_scale)
