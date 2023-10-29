@@ -1,26 +1,65 @@
 extends Node2D
 
-var test_array: Array[String] = ["Test", "Hello", "World"]
 
-var direction = 1
+var velocity = Vector2.ZERO
+const SPEED = 200
+
+
+var rotation_direction = 1
 const ROT_SPEED = 45
 const ROT_MAX = 90
 const ROT_MIN = -90
 
+
 func _ready():
 	$Logo.rotation_degrees = 0
-	
-	for val in test_array:
-		print(val)
+	$Logo.position = Vector2(
+		get_window().size.x / 2,
+		get_window().size.y / 2
+	)
 
 
 func _process(delta):
-	$Logo.rotation_degrees += (ROT_SPEED * delta * direction)
+	rotate_logo(delta)
+	move_logo(delta)
+	scale_logo()
+
+
+func rotate_logo(delta):
+	$Logo.rotation_degrees += (ROT_SPEED * delta * rotation_direction)
 	
 	if $Logo.rotation_degrees >= ROT_MAX:
-		direction = -1
+		rotation_direction = -1
 	if $Logo.rotation_degrees <= ROT_MIN:
-		direction = 1
+		rotation_direction = 1
+
+
+func move_logo(delta):
+	var isLeft = Input.is_action_pressed("left")
+	var isRight = Input.is_action_pressed("right")
+	var isUp = Input.is_action_pressed("up")
+	var isDown = Input.is_action_pressed("down")
 	
-	if $Logo.position.x > 1000:
-		$Logo.pos.x = 0
+	if isLeft: 
+		velocity.x = -1
+	elif isRight:
+		velocity.x = 1
+	else:
+		velocity.x = 0
+
+	if isUp: 
+		velocity.y = -1
+	elif isDown:
+		velocity.y = 1
+	else:
+		velocity.y = 0
+	
+	if velocity.length() != 0:
+		$Logo.position = $Logo.position + (SPEED * delta * velocity)
+
+
+func scale_logo():
+	if Input.is_action_just_pressed("primary"):
+		$Logo.scale = $Logo.scale * 2
+	if Input.is_action_just_released("primary"):
+		$Logo.scale = $Logo.scale * 0.5
