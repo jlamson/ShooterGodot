@@ -12,6 +12,10 @@ script = ExtResource("1_f3of7")
 [node name="Player" parent="." instance=ExtResource("3_o1emd")]
 position = Vector2(556, 503)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
 [node name="Projectiles" type="Node2D" parent="."]
 
 [connection signal="player_entered" from="Gate" to="." method="_on_gate_player_entered"]
