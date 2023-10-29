@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://rmn4xrmye82u"]
+
+[ext_resource type="Texture2D" uid="uid://cev6puw0jjmv3" path="res://icon.svg" id="1_1urrg"]
+[ext_resource type="Texture2D" uid="uid://h11t2npcplji" path="res://graphics/car/main.png" id="2_42phg"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(202, 146)
+texture = ExtResource("1_1urrg")
+region_rect = Rect2(-51, -43.5, 141, 136)
+
+[node name="Car" type="Sprite2D" parent="Logo"]
+position = Vector2(445, 170)
+rotation = 0.539307
+texture = ExtResource("2_42phg")
